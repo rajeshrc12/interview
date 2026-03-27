@@ -1,4 +1,6 @@
-import OnlyMemo from "./only-memo";
+// import OnlyMemo from "./only-memo";
+
+import UseMemo from "./use-memo";
 
 const App = () => {
   return (
@@ -11,7 +13,8 @@ const App = () => {
         width: "100%",
       }}
     >
-      <OnlyMemo />
+      {/* <OnlyMemo /> */}
+      <UseMemo />
     </div>
   );
 };

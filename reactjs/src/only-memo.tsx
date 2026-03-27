@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Child from "./Child";
+import OnlyMemoChild from "./only-memo-child";
 
 const OnlyMemo = () => {
   const [count, setCount] = useState(0);
@@ -7,7 +7,7 @@ const OnlyMemo = () => {
   return (
     <>
       <button onClick={() => setCount(count + 1)}>Click</button>
-      <Child />
+      <OnlyMemoChild />
     </>
   );
 };
