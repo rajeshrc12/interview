@@ -1,6 +1,7 @@
 // import OnlyMemo from "./only-memo";
+// import UseMemo from "./use-memo";
 
-import UseMemo from "./use-memo";
+import UseCallback from "./use-callback";
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
       }}
     >
       {/* <OnlyMemo /> */}
-      <UseMemo />
+      {/* <UseMemo /> */}
+      <UseCallback />
     </div>
   );
 };
