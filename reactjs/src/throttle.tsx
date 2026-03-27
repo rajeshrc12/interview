@@ -11,7 +11,8 @@ const Throttle = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  console.log(`Throttled Scroll Y: ${throttledScrollY}px`);
+  console.log(`Throttled Scroll Y: ${window.scrollY}px`);
+
   return (
     <div>
       Throttled Scroll Y: {throttledScrollY}px

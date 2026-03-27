@@ -9,6 +9,7 @@ export function useThrottle<T>(value: T, delay: number): T {
       () => {
         const now = Date.now();
         if (now - lastRan.current >= delay) {
+          console.log("=====>>>>>> useThrottle");
           setThrottled(value);
           lastRan.current = now;
         }
