@@ -5,7 +5,8 @@
 // import Throttle from "./throttle";
 // import NonLazy from "./NonLazy";
 // import Lazy from "./Lazy";
-import Virtualization from "./Virtualization";
+// import Virtualization from "./Virtualization";
+import UseTransition from "./UseTransition";
 
 const App = () => {
   return (
@@ -25,7 +26,8 @@ const App = () => {
       {/* <Throttle /> */}
       {/* <NonLazy /> */}
       {/* <Lazy /> */}
-      <Virtualization />
+      {/* <Virtualization /> */}
+      <UseTransition />
     </div>
   );
 };
