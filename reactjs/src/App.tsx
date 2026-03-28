@@ -6,6 +6,7 @@
 // import NonLazy from "./NonLazy";
 // import Lazy from "./Lazy";
 // import Virtualization from "./Virtualization";
+import FilterList from "./FilterList";
 import UseTransition from "./UseTransition";
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
       {/* <Lazy /> */}
       {/* <Virtualization /> */}
       <UseTransition />
+      <FilterList />
     </div>
   );
 };

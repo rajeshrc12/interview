@@ -1,58 +1,37 @@
 import React, { useState, useTransition } from "react";
-import { users } from "./data";
-
-interface Item {
-  name: string;
-}
+const items = Array.from({ length: 10000 }, (_, i) => `Item ${i}`);
 
 const UseTransition = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filtered, setFiltered] = useState(users);
-
-  // A Standard Hook to mark things non-urgent
+  const [query, setQuery] = useState("");
+  const [filtered, setFiltered] = useState(items);
   const [isPending, startTransition] = useTransition();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setSearchTerm(value);
 
+    // urgent update (typing)
+    setQuery(value);
+
+    // non-urgent update (heavy work)
     startTransition(() => {
-      setFiltered(users.filter((item: Item) => item.name.includes(value)));
+      const result = items.filter((item) =>
+        item.toLowerCase().includes(value.toLowerCase()),
+      );
+      setFiltered(result);
     });
   };
 
   return (
-    <div className="container">
-      <div>
-        <button onClick={() => console.log("click")}>click</button>
-      </div>
-      <div>
+    <div>
+      <div>useTransition Demo</div>
+      <input value={query} onChange={handleChange} />
+      <div style={{ height: "500px", width: "200px", overflowY: "scroll" }}>
         {isPending ? (
-          <div>Loading...</div>
+          <p>Loading...</p>
         ) : (
-          <p>
-            {users.length !== filtered.length
-              ? `${filtered.length} matches`
-              : null}
-          </p>
+          filtered.map((item) => <div key={item}>{item}</div>)
         )}
       </div>
-
-      <input onChange={handleChange} value={searchTerm} type="text" />
-
-      {isPending ? (
-        <div>Loading...</div>
-      ) : (
-        <div style={{ height: "400px", width: "200px", overflowY: "scroll" }}>
-          {filtered.map((user) => (
-            <div key={user.id} className="card">
-              <div className="body">
-                <strong>{user.name}</strong>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 };
