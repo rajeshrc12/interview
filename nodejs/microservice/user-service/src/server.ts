@@ -7,7 +7,7 @@ app.use(express.json());
 
 // routes
 app.get("/", (req: Request, res: Response) => {
-  res.send("Yo Hello from Express + TypeScript 🚀");
+  res.send("Hello from user service");
 });
 
 app.get("/health", (req: Request, res: Response) => {
