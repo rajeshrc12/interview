@@ -1,0 +1,22 @@
+import express, { Request, Response } from "express";
+
+const app = express();
+
+// middleware
+app.use(express.json());
+
+// routes
+app.get("/", (req: Request, res: Response) => {
+  res.send("Yo Hello from Express + TypeScript 🚀");
+});
+
+app.get("/health", (req: Request, res: Response) => {
+  res.json({ status: "ok" });
+});
+
+// server
+const PORT: number = 3000;
+
+app.listen(PORT, (): void => {
+  console.log(`Yo Server running on http://localhost:${PORT}`);
+});
